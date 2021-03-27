@@ -1,15 +1,15 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 
-const CategoriesScreen = (props) => {
+const CategoryMealsScreen = (props) => {
 	return (
 		<View style={styles.screen}>
-			<Text>The Categories screen!</Text>
+			<Text>The CategoryMeal screen!</Text>
 			<View style={styles.buttons}>
 				<Button
-					title="Go to Meals"
+					title="Go to Detail"
 					onPress={() => {
-						props.navigation.navigate("CategoryMeals");
+						props.navigation.navigate("MealDetail");
 					}}
 				/>
 			</View>
@@ -28,4 +28,4 @@ const styles = {
 	},
 };
 
-export default CategoriesScreen;
+export default CategoryMealsScreen;
