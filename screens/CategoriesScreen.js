@@ -9,7 +9,6 @@ import {
 } from "react-native";
 
 import { CATEGORIES } from "../data/dummy-data";
-import Colors from "../constants/Colors";
 
 const CategoriesScreen = (props) => {
 	const renderGridItem = (itemData) => {
@@ -17,11 +16,23 @@ const CategoriesScreen = (props) => {
 			<TouchableOpacity
 				style={styles.gridItem}
 				onPress={() => {
-					props.navigation.navigate({ routeName: "CategoryMeals" });
+					props.navigation.navigate({
+						routeName: "CategoryMeals",
+						params: {
+							categoryId: itemData.item.id,
+						},
+					});
 				}}
 			>
-				<View>
-					<Text>{itemData.item.title}</Text>
+				<View
+					style={{
+						...styles.container,
+						...{ backgroundColor: itemData.item.color },
+					}}
+				>
+					<Text style={styles.title} numberOfLines={2}>
+						{itemData.item.title}
+					</Text>
 				</View>
 			</TouchableOpacity>
 		);
@@ -37,14 +48,6 @@ const CategoriesScreen = (props) => {
 	);
 };
 
-CategoriesScreen.navigationOptions = {
-	headerTitle: "Meal Categories",
-	headerStyle: {
-		backgroundColor: Colors.primaryColor,
-	},
-	headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
-};
-
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
@@ -55,6 +58,18 @@ const styles = StyleSheet.create({
 		flex: 1,
 		margin: 15,
 		height: 150,
+	},
+	container: {
+		flex: 1,
+		borderRadius: 10,
+		padding: 15,
+		justifyContent: "flex-end",
+		alignItems: "flex-end",
+	},
+	title: {
+		fontFamily: "open-sans-bold",
+		fontSize: 19,
+		textAlign: "right",
 	},
 });
 
