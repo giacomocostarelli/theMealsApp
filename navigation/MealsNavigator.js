@@ -57,6 +57,8 @@ const mealsFavTabNavigatorConfig = {
 	Meals: {
 		screen: MealsNavigator,
 		navigationOptions: {
+			//flashy transition solved.
+			sceneAnimationEnabled: "false",
 			tabBarLabel: "Categories",
 			tabBarIcon: (tabInfo) => {
 				return (
@@ -69,6 +71,8 @@ const mealsFavTabNavigatorConfig = {
 	Favorites: {
 		screen: FavNavigator,
 		navigationOptions: {
+			//flashy transition solved.
+			sceneAnimationEnabled: "false",
 			tabBarIcon: (tabInfo) => {
 				return <Ionicons name="ios-star" size={25} color={tabInfo.tintColor} />;
 			},

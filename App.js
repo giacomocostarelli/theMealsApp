@@ -4,7 +4,7 @@ import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import { enableScreens } from "react-native-screens";
 
-import MealsFavTabNavigator from "./navigation/MealsNavigator";
+import MainNavigator from "./navigation/MealsNavigator";
 //For better performances.
 enableScreens();
 
@@ -31,7 +31,7 @@ export default function App() {
 			/>
 		);
 	}
-	return <MealsFavTabNavigator />;
+	return <MainNavigator />;
 }
 
 const styles = {

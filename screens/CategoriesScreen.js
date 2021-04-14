@@ -5,10 +5,10 @@ import {
 	FlatList,
 	StyleSheet,
 	TouchableOpacity,
-	Platform,
 } from "react-native";
-
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { CATEGORIES } from "../data/dummy-data";
+import CustomHeaderButton from "../components/CustomHeaderButton";
 
 const CategoriesScreen = (props) => {
 	const renderGridItem = (itemData) => {
@@ -46,6 +46,23 @@ const CategoriesScreen = (props) => {
 			numColumns={2}
 		/>
 	);
+};
+
+CategoriesScreen.navigationOptions = (navData) => {
+	return {
+		headerTitle: "Meal Categories",
+		headerLeft: () => (
+			<HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+				<Item
+					title="Menu"
+					iconName="ios-menu"
+					onPress={() => {
+						navData.navigation.toggleDrawer();
+					}}
+				/>
+			</HeaderButtons>
+		),
+	};
 };
 
 const styles = StyleSheet.create({
