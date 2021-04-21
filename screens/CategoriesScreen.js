@@ -27,7 +27,7 @@ const CategoriesScreen = (props) => {
 				<View
 					style={{
 						...styles.container,
-						...{ backgroundColor: itemData.item.color },
+						...{ backgroundColor: "#b5c1e9" },
 					}}
 				>
 					<Text style={styles.title} numberOfLines={2}>

@@ -3,10 +3,19 @@ import { LogBox } from "react-native";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import { enableScreens } from "react-native-screens";
+import { createStore, combineReducers } from "redux";
+import mealsReducer from "./store/reducers/meals";
+import { Provider } from "react-redux";
 
 import MainNavigator from "./navigation/MealsNavigator";
 //For better performances.
 enableScreens();
+
+const rootReducer = combineReducers({
+	meals: mealsReducer,
+});
+
+const store = createStore(rootReducer);
 
 LogBox.ignoreLogs([
 	"Your project is accessing the following APIs from a deprecated global rather than a module import: Constants (expo-constants).",
@@ -31,7 +40,11 @@ export default function App() {
 			/>
 		);
 	}
-	return <MainNavigator />;
+	return (
+		<Provider store={store}>
+			<MainNavigator />
+		</Provider>
+	);
 }
 
 const styles = {
