@@ -8,13 +8,14 @@ import mealsReducer from "./store/reducers/meals";
 import { Provider } from "react-redux";
 
 import MainNavigator from "./navigation/MealsNavigator";
+
 //For better performances.
 enableScreens();
 
+//store redux creator
 const rootReducer = combineReducers({
 	meals: mealsReducer,
 });
-
 const store = createStore(rootReducer);
 
 LogBox.ignoreLogs([
